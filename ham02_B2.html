@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="diameter" placeholder="Nhập đường kính hình tròn" oninput="mathC(),mathS()">
+<p><span id="resultS"></span></p>
+<p><span id="resultC"></span></p>
+<script>
+    function mathS(number) {
+        var number = document.getElementById("diameter").value;
+        let mathS = number ** 2 / 4 * 3.14
+        document.getElementById("resultS").innerHTML = "dien tich hinh tron = " + mathS
+    }
+
+    function mathC(num) {
+        var num = document.getElementById("diameter").value;
+        let mathC = num * 3.14
+        document.getElementById("resultC").innerHTML = "chu vi hinh tron = " + mathC;
+    }
+    
+</script>
+</body>
+</html>
