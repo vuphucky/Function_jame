@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrStar = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let arrNameStar = ["UrsaMinor", "Tarurus", "Cygnus", "Lyra", "Aquila", "UrsaMajor", "leo"];
+
+    function findStar(star) {
+        // let index= -1;
+        let index_arrStar = -1;
+        let result = "";
+        for (let i = 0; i < arrStar.length; i++) {
+            if (star === arrStar[i]) {
+                index_arrStar = i;
+            }
+        }
+        return index_arrStar;
+    }
+
+
+    function getNamStar() {
+        let star = prompt("nhap sao: ");
+        let index = findStar(star);
+        if (index === -1) {
+            alert("khong tim thay")
+        } else {
+            alert(star + " nam trong sao " + arrNameStar[index]);
+        }
+
+    }
+
+    getNamStar();
+</script>
+</body>
+</html>
