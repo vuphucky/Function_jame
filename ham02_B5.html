@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<input type="number" placeholder="nhap so thu nhat" id="first">-->
+<!--<br> <br>-->
+<!--<input type="number" p  laceholder="nhap so thu hai" id="second">-->
+<!--<br> <br>-->
+<!--<input type="number" placeholder="nhap so thu ba" id="thirst">-->
+<!--<br> <br> <br>-->
+<!--<input type="button" value="min" onclick="getMin()">-->
+<P><span id="result"></span></P>
+<script>
+    var fistN = +prompt("sothunhat");
+    var secondN = +prompt("sothu2");
+    var thirstN = +prompt("sothu3");
+    var min = fistN;
+    function getMin(fistN,secondN,thirstN) {
+        if (min > secondN) min = secondN
+        if (min > thirstN) min= thirstN
+        return min
+    }
+    document.write(min)
+</script>
+</body>
+</html>
