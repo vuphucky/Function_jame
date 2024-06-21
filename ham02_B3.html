@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="Nhap so" id="num" oninput="mathNum()">
+<p><span id="result"></span></p>
+<script>
+    function mathNum(number) {
+       var number = document.getElementById("num").value;
+        let x =1;
+        for (let i = 1; i <= number ; i++) {
+          x *= i;
+        }
+        document.getElementById("result").innerHTML = "giai thua của " + number + " = " + x
+    }
+</script>
+</body>
+</html>
