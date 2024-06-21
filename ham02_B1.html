@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="tinh binh phuong 1 so" id="number">
+<input type="button" value="Tinh" onclick="math()">
+<p><span id="result"></span></p>
+<script>
+
+    function math(num) {
+        var num = document.getElementById("number").value;
+        result = num * num
+        document.getElementById("result").innerHTML = "binh phuong = " + result
+    }
+
+</script>
+</body>
+</html>
