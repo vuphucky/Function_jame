@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   function isPalindrome() {
+       let str = prompt("Nhập chuỗi kí tự kiểm tra đối xứng");
+       let result = "Đây là chuỗi đối xứng"
+       let firstIndex = 0;
+       let lastIndx = str.length - 1;
+       while (firstIndex < lastIndx) {
+           if (str[firstIndex] !== str[lastIndx]) {
+               alert("Đây không phải chuỗi đối xứng")
+           }
+           firstIndex++;
+           lastIndx--;
+       }
+       alert(result)
+   }
+   isPalindrome()
+
+//    function isPalindrome () {
+// let str = prompt("nhập kí tự kiểm tra chuỗi đối xứng");
+// let result = "đây là chuỗi đối xứng"
+//        for (let i = 0; i < str.length / 2; i++) {
+//            if (str[i] !== str.length - 1 -i) {
+//                result = "đây không phải chuỗi đối xứng"
+//            }
+//        }
+//        alert(result);
+//    }
+//
+//    isPalindrome()
+</script>
+</body>
+</html>
