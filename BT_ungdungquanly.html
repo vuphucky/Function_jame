@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <fieldset>
+        <legend>Add new product</legend>
+        <label for="name"></label>
+    <input type="text" id="name" placeholder="">
+        <label for="price"></label>
+    <input type="number" id="price" placeholder="">
+        <label for="color"></label>
+    <input type="text" id="color" placeholder="">
+    <button type="button" onclick="addNewProduct()">Add New Product</button>
+    <button type="button" onclick="edit()">edit</button>
+    </fieldset>
+</form>
+<h2>Display all product</h2>
+<p id="total"></p>
+<table border="1px">
+    <thead>
+    <tr>
+        <th>Product name</th>
+        <th>price</th>
+        <th>color</th>
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+    </tbody>
+</table>
+<script>
+    class Product {
+        constructor(name,price,color) {
+            this.name = name;
+            this.price = price;
+            this.color = color;
+        }
+        setName () {
+            this.name = name;
+        }
+        getName() {
+            return this.name
+        }
+        setColor(){
+            this.color = color;
+        }
+        getColor(){
+            return this.color;
+        }
+        setPrice(){
+            this.price = price;
+        }
+        getPrice(){
+            return this.price;
+        }
+    }
+    let product1 = new Product("xiaomi",100,"black");
+    let product2 = new Product("iphone",200,"gold");
+    let product3 = new Product("samsung",150,"red");
+let tempIndex;
+    let products = [product1, product2, product3];
+    function displayProduct(){
+        let str = "";
+        for (let i = 0; i < products.length; i++) {
+            str += `<tr>
+                   <td> ${products[i].getName()} </td>
+                   <td> ${products[i].getPrice()} </td>
+                   <td> ${products[i].getColor()} </td>
+                   <td> <button onclick="getInforToEdit(${i})">Edit</button> </td>
+                   <td> <button onclick="remove('${i}' , '${products[i].getName()}')">Delete</button> </td>
+                   </tr>`;
+        }
+        document.getElementById('body').innerHTML = str;
+        document.getElementById('total').innerHTML = products.length + " product(s)";
+    }
+
+    displayProduct();
+
+    function addNewProduct(){
+        let productName = document.getElementById("name").value;
+        let productPrice = +document.getElementById("price").value;
+        let productColor = document.getElementById("color").value;
+
+        if (productName === "" ||  productColor === ""){
+            alert("product infor is required");
+        } else {
+            let newProduct = new Product(productName,productPrice,productColor);
+            products.push(newProduct);
+            document.getElementById("name").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("color").value = "";
+            displayProduct();
+            alert("add new successfully")
+        }
+    }
+
+    function remove(index,name){
+        let check = confirm(`are you sure delete ${name}`);
+        if (check) {
+            products.splice(index, 1);
+        }
+            displayProduct();
+    }
+
+    function getInforToEdit(index){
+        tempIndex = index;
+        document.getElementById("name").value = products[index].getName();
+        document.getElementById("price").value = products[index].getPrice();
+        document.getElementById("color").value = products[index].getColor();
+    }
+
+     function edit() {
+         let productName = document.getElementById("name").value;
+         let productPrice = +document.getElementById("price").value;
+         let productColor = document.getElementById("color").value;
+
+         if (productName === "" ||  productColor === ""){
+             alert("product infor is required");
+         } else {
+             products[tempIndex] = new Product(productName,productPrice,productColor)
+             document.getElementById("name").value = "";
+             document.getElementById("price").value = "";
+             document.getElementById("color").value = "";
+
+             displayProduct();
+             alert("edit successfully");
+         }
+     }
+</script>
+</body>
+</html>
